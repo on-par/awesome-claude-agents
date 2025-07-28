@@ -1,0 +1,82 @@
+name: Agent Submission
+description: Submit a new agent to be included in the collection
+title: "[Agent]: "
+labels: ["agent-submission", "needs-review"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing a new agent! Please provide the details below.
+  - type: input
+    id: agent-name
+    attributes:
+      label: Agent Name
+      description: What is the name of your agent?
+      placeholder: my-awesome-agent
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Agent Description
+      description: What does your agent do? How does it help developers?
+      placeholder: This agent helps with...
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Agent Category
+      description: Which category should this agent belong to?
+      options:
+        - TDD Suite
+        - Testing
+        - Code Quality
+        - Documentation
+        - DevOps
+        - Security
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: usage-example
+    attributes:
+      label: Usage Example
+      description: Provide an example of how to use your agent
+      placeholder: |
+        claude "Use my-awesome-agent to..."
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: agent-file
+    attributes:
+      label: Agent File Content
+      description: Please paste the complete content of your agent .md file
+      placeholder: Paste your agent markdown content here...
+      render: markdown
+    validations:
+      required: true
+  - type: checkboxes
+    id: requirements
+    attributes:
+      label: Submission Requirements
+      description: Please confirm the following requirements are met
+      options:
+        - label: My agent includes clear documentation and usage examples
+          required: true
+        - label: My agent follows the established patterns from existing agents
+          required: true
+        - label: My agent has been tested and works as expected
+          required: true
+        - label: I have the rights to submit this agent and it doesn't contain proprietary code
+          required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

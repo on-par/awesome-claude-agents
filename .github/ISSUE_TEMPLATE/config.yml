@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/on-par-dev/awesome-claude-agents/blob/main/README.md
+    about: Check our README for installation and usage instructions
+  - name: 💬 Discussion
+    url: https://github.com/on-par-dev/awesome-claude-agents/discussions
+    about: Ask questions and discuss ideas with the community
+  - name: 🐛 Claude Code Issues
+    url: https://github.com/anthropics/claude-code/issues
+    about: Report issues with Claude Code itself (not the agents)
