@@ -1,137 +1,147 @@
-# 🤖 Awesome Claude Agents
+# Awesome Claude Agents
 
-[![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+A collection of Claude Code agents designed to automate software development workflows. Currently focused on Test-Driven Development automation with plans to expand into other areas.
 
-A curated collection of Claude Code agents, prompts, and configurations to supercharge your development workflow. This repository provides ready-to-use agents for Test-Driven Development, code review, refactoring, and more.
+## What's Included
 
-> 💡 **What are Claude Agents?** Specialized AI assistants that handle specific development tasks with focused expertise, from writing tests to managing git workflows.
+This repository contains specialized agents that integrate with Claude Code's agent system. Each agent handles a specific development task, allowing you to build more complex workflows by combining them.
 
-## ✨ Features
+### Current Agent Categories
 
-- 🔄 **Test-Driven Development Suite** - Complete TDD workflow automation
-- 🛠️ **Specialized Agents** - Each agent focuses on one task exceptionally well
-- 🔗 **Seamless Integration** - Works with Claude Code's agent system
-- 📚 **Well-Documented** - Clear examples and usage instructions
-- 🚀 **Production-Ready** - Battle-tested in real development workflows
+**TDD Suite** (`tdd-suite/`)
+A complete set of agents for automating Test-Driven Development workflows:
 
-## 📋 Agent Directory
+- `tdd-orchestrator` - Coordinates the full TDD cycle
+- `tdd-red` - Writes failing tests 
+- `tdd-green` - Implements minimal code to pass tests
+- `tdd-refactor` - Improves code quality while maintaining test coverage
+- `tdd-git` - Handles version control operations
 
-#### Directory Structure
+## Getting Started
 
-Agents are organized by category in subfolders, each with its own README for details and usage examples.
+### Requirements
 
-```
-/
-├── tdd-suite/           # Test-Driven Development agents
-│   └── README.md
-├── code-review/         # Code review and analysis agents
-│   └── README.md
-├── refactoring/         # Refactoring and code quality agents
-│   └── README.md
-├── git-workflow/        # Git and version control agents
-│   └── README.md
-└── ...
-```
-
-- **Browse each folder** for agent descriptions, setup, and usage.
-- **See each README** for best practices and integration tips.
-- **Choose agents** based on your workflow needs—combine them as needed!
-
-> 💡 **Tip:** Start with the `tdd-suite` for end-to-end TDD automation, or explore other folders for specialized tasks.
-
-A complete TDD workflow system with specialized agents for each phase:
-
-| Agent | Purpose | Phase | Description |
-|-------|---------|-------|-------------|
-| **tdd-orchestrator** | Coordination | All | Manages the complete TDD cycle and agent coordination |
-| **tdd-red** | Test Writing | Red | Writes failing tests that define expected behavior |
-| **tdd-green** | Implementation | Green | Implements minimal code to make tests pass |
-| **tdd-refactor** | Code Quality | Refactor | Improves code structure while maintaining test coverage |
-| **tdd-git** | Version Control | All | Handles all git operations with proper TDD commit messages |
-
-### 🎯 How the TDD Suite Works
-
-1. **tdd-orchestrator** creates a feature branch via **tdd-git**
-2. **tdd-red** writes failing tests
-3. **tdd-git** commits the red phase
-4. **tdd-green** implements minimal code to pass tests
-5. **tdd-git** commits the green phase
-6. **tdd-refactor** improves code quality
-7. **tdd-git** commits the refactor phase
-8. Repeat until feature is complete
-
-> 💡 **Pro Tip**: Use `tdd-orchestrator` to automatically coordinate the entire TDD workflow, or use individual agents for specific phases.
-
-## 🚀 Quick Start
-
-### Prerequisites
-- [Claude Code CLI](https://docs.anthropic.com/en/docs/claude-code) installed
+- Claude Code CLI installed
 - Git repository for your project
 
 ### Installation
 
-1. **Copy agents to your project:**
-   ```bash
-   # Copy the entire .claude/agents directory to your project
-   cp -r .claude/agents /path/to/your/project/.claude/
-   ```
+#### Quick Install (Recommended)
 
-2. **Use individual agents:**
-   ```bash
-   # For complete TDD workflow
-   claude "Use the tdd-orchestrator to implement user authentication"
-   
-   # For specific phases
-   claude "Use tdd-red to write tests for the login function"
-   claude "Use tdd-green to implement the login function"
-   claude "Use tdd-refactor to clean up the login code"
-   ```
+Install agents directly without cloning this repository:
 
-3. **Verify installation:**
-   ```bash
-   claude "/agents" # Should show your installed agents
-   ```
-
-## 📖 Usage Examples
-
-### Complete TDD Workflow
 ```bash
-# Let the orchestrator handle everything
-claude "I need to implement a shopping cart with add, remove, and total calculation methods using TDD"
+# Install complete TDD suite
+curl -sSL https://raw.githubusercontent.com/on-par-dev/awesome-claude-agents/main/install.sh | bash -s tdd-suite
+
+# Install specific agents
+curl -sSL https://raw.githubusercontent.com/on-par-dev/awesome-claude-agents/main/install.sh | bash -s tdd-orchestrator tdd-red
 ```
 
-### Manual TDD Phases
+#### Manual Installation
+
+For individual agents, you can download them directly:
+
 ```bash
-# Write failing tests first
-claude "Use tdd-red to create tests for a password validation function"
+# Create agents directory
+mkdir -p .claude/agents
 
-# Implement minimal code
-claude "Use tdd-green to make the password validation tests pass"
-
-# Refactor for quality
-claude "Use tdd-refactor to improve the password validation code"
+# Download specific agents
+curl -o .claude/agents/tdd-orchestrator.md https://raw.githubusercontent.com/on-par-dev/awesome-claude-agents/main/tdd-suite/tdd-orchestrator.md
+curl -o .claude/agents/tdd-red.md https://raw.githubusercontent.com/on-par-dev/awesome-claude-agents/main/tdd-suite/tdd-red.md
 ```
 
-## 📝 Contributing
+#### Local Installation
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+If you've cloned this repository:
 
-- 🐛 **Bug Reports**: Found an issue? [Open an issue](../../issues)
-- 💡 **Feature Requests**: Have an idea? [Start a discussion](../../discussions)
-- 🔧 **Pull Requests**: Ready to contribute? [Submit a PR](../../pulls)
+```bash
+# Copy all TDD agents
+cp tdd-suite/*.md /path/to/your/project/.claude/agents/
 
-## 📄 License
+# Or copy specific agents
+cp tdd-suite/tdd-orchestrator.md /path/to/your/project/.claude/agents/
+```
 
-MIT License - see [LICENSE](LICENSE) for details.
+### Verify Installation
 
-## 🙏 Acknowledgments
+Check that agents are available:
 
-- Inspired by [awesome-copilot](https://github.com/github/awesome-copilot)
-- Built for the [Claude Code](https://claude.ai/code) community
-- Maintained by [On PAR Dev](https://github.com/on-par-dev)
+```bash
+# List installed agents
+claude "/agents"
 
----
+# Should show your installed agents like tdd-orchestrator, tdd-red, etc.
+```
 
-<div align="center">
-  <sub>⭐ Star this repo if it helped you! ⭐</sub>
-</div>
+### Basic Usage
+
+Once installed, reference agents in your Claude conversations:
+
+```bash
+# Use the orchestrator for complete TDD workflows
+claude "Use tdd-orchestrator to implement user registration with email validation"
+
+# Use individual agents for specific phases
+claude "Use tdd-red to write tests for a password strength validator"
+```
+
+## TDD Workflow Example
+
+The TDD suite follows the standard Red-Green-Refactor cycle:
+
+1. **Red Phase**: `tdd-red` writes failing tests that define the expected behavior
+2. **Green Phase**: `tdd-green` implements minimal code to make tests pass  
+3. **Refactor Phase**: `tdd-refactor` improves code structure without changing behavior
+4. **Git Operations**: `tdd-git` handles commits and branching throughout the process
+
+The `tdd-orchestrator` manages this entire workflow automatically.
+
+## Directory Structure
+
+```
+.
+├── README.md
+└── tdd-suite/
+    ├── ReadMe.md              # Detailed TDD suite documentation
+    ├── tdd-orchestrator.md    # Main workflow coordinator
+    ├── tdd-red.md            # Test writing agent
+    ├── tdd-green.md          # Implementation agent  
+    ├── tdd-refactor.md       # Code quality agent
+    └── tdd-git.md            # Git workflow agent
+```
+
+Each folder contains a detailed README explaining the agents and their usage patterns.
+
+## Alternative Installation
+
+If the install script doesn't work, you can manually download and place the agent files:
+
+### Manual Download
+
+1. **Create a `.claude/agents` folder in your project root** (same level as your `.git` folder)
+
+2. **Download the agent files you want** and save them directly into your `.claude/agents` folder
+
+3. **That's it!** Claude Code will automatically find any `.md` files in that folder and make them available as agents
+
+Agent files must be placed in `.claude/agents/` in your project root for Claude Code to find them.
+
+## Contributing
+
+Contributions are welcome. If you have agents that would be useful to others:
+
+1. Fork this repository
+2. Add your agents in an appropriate category folder
+3. Include clear documentation and usage examples
+4. Submit a pull request
+
+For bug reports or feature requests, please use the GitHub issue tracker.
+
+## License
+
+MIT License - see LICENSE file for details.
+
+## Acknowledgments
+
+Inspired by [awesome-copilot](https://github.com/github/awesome-copilot) and built for the Claude Code community.

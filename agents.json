@@ -1,0 +1,112 @@
+{
+  "version": "1.0.0",
+  "repository": "https://github.com/on-par-dev/awesome-claude-agents",
+  "agents": {
+    "tdd-orchestrator": {
+      "name": "TDD Orchestrator",
+      "description": "Coordinates the complete TDD cycle and manages agent workflow",
+      "category": "tdd-suite",
+      "path": "tdd-suite/tdd-orchestrator.md",
+      "phase": "all",
+      "dependencies": ["tdd-red", "tdd-green", "tdd-refactor", "tdd-git"],
+      "color": "blue",
+      "tags": ["tdd", "orchestration", "workflow", "coordination"]
+    },
+    "tdd-red": {
+      "name": "TDD Red Phase",
+      "description": "Writes failing tests that define expected behavior",
+      "category": "tdd-suite",
+      "path": "tdd-suite/tdd-red.md",
+      "phase": "red",
+      "dependencies": [],
+      "color": "red",
+      "tags": ["tdd", "testing", "red-phase", "test-writing"]
+    },
+    "tdd-green": {
+      "name": "TDD Green Phase", 
+      "description": "Implements minimal code to make tests pass",
+      "category": "tdd-suite",
+      "path": "tdd-suite/tdd-green.md",
+      "phase": "green",
+      "dependencies": [],
+      "color": "green",
+      "tags": ["tdd", "implementation", "green-phase", "minimal-code"]
+    },
+    "tdd-refactor": {
+      "name": "TDD Refactor Phase",
+      "description": "Improves code quality while maintaining test coverage",
+      "category": "tdd-suite",
+      "path": "tdd-suite/tdd-refactor.md", 
+      "phase": "refactor",
+      "dependencies": [],
+      "color": "purple",
+      "tags": ["tdd", "refactoring", "code-quality", "clean-code"]
+    },
+    "tdd-git": {
+      "name": "TDD Git Workflow",
+      "description": "Handles all git operations with proper TDD commit messages",
+      "category": "tdd-suite",
+      "path": "tdd-suite/tdd-git.md",
+      "phase": "all",
+      "dependencies": [],
+      "color": "orange", 
+      "tags": ["tdd", "git", "version-control", "workflow"]
+    }
+  },
+  "suites": {
+    "tdd-suite": {
+      "name": "Test-Driven Development Suite",
+      "description": "Complete TDD workflow automation with specialized agents for each phase",
+      "agents": ["tdd-orchestrator", "tdd-red", "tdd-green", "tdd-refactor", "tdd-git"],
+      "workflow": [
+        {
+          "step": 1,
+          "agent": "tdd-orchestrator",
+          "action": "Initialize TDD session and coordinate workflow"
+        },
+        {
+          "step": 2, 
+          "agent": "tdd-git",
+          "action": "Create feature branch"
+        },
+        {
+          "step": 3,
+          "agent": "tdd-red", 
+          "action": "Write failing tests"
+        },
+        {
+          "step": 4,
+          "agent": "tdd-git",
+          "action": "Commit red phase"
+        },
+        {
+          "step": 5,
+          "agent": "tdd-green",
+          "action": "Implement minimal code"
+        },
+        {
+          "step": 6,
+          "agent": "tdd-git", 
+          "action": "Commit green phase"
+        },
+        {
+          "step": 7,
+          "agent": "tdd-refactor",
+          "action": "Improve code quality"
+        },
+        {
+          "step": 8,
+          "agent": "tdd-git",
+          "action": "Commit refactor phase"
+        }
+      ]
+    }
+  },
+  "categories": {
+    "tdd-suite": {
+      "name": "Test-Driven Development",
+      "description": "Agents for automating TDD workflows",
+      "color": "blue"
+    }
+  }
+}
