@@ -82,6 +82,28 @@ tools: optional-comma-separated-tool-list
 
 **File Placement:** The agent will be saved to `.claude/agents/[agent-name].md` in the project directory.
 
+## Output Instructions
+
+**CRITICAL**: Your output must be the complete Claude Code sub-agent file content in markdown format, NOT JSON. 
+
+**Format Your Response As:**
+```markdown
+---
+name: agent-name
+description: When this agent should be used with specific examples
+tools: comma-separated-list (optional)
+---
+
+Complete system prompt content here...
+```
+
+**Do NOT output:**
+- JSON objects with fields like "identifier", "whenToUse", "systemPrompt"
+- Explanatory text before or after the agent file content
+- Any format other than the raw markdown file content
+
+**Your entire response should be the contents of the `.md` file that will be written to disk.**
+
 ## Multi-Agent Architecture Patterns
 
 **ORCHESTRATOR/WORKER PATTERN**: For complex tasks, design agents that can:
